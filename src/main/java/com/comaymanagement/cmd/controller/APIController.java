@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.comaymanagement.cmd.entity.Product;
+
 import com.comaymanagement.cmd.service.ProductService;
+import com.comaymanagement.cmd.service.UserService;
 
 @RestController
 @RequestMapping("/")
 public class APIController {
 	
+	@Autowired
+	UserService userService;
 	@Autowired
 	ProductService productService;
 	
@@ -25,8 +29,6 @@ public class APIController {
 	}
 	
 
-
-
-
-	
 }
+
+
