@@ -1,9 +1,6 @@
 package com.comaymanagement.cmd.controller;
 
-import java.util.List;
 import java.util.Optional;
-
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +20,14 @@ public class EmployeesAPI {
 	
 	// Create url find all employees
 	@GetMapping("")
-	public List<Employees> FindAll(){
+	public Iterable<Employees> FindAll(){
 		return employeesService.findAll();
 	}
 	
 	// Create url find employees by id
 	@GetMapping("/{id}")
 	public Optional<Employees> FindByID(@PathVariable Long id) {
-		return employeesService.FindByID(id);
+		return employeesService.findById(id);
 	}
+	
 }
