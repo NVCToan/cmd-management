@@ -23,6 +23,5 @@ public class ProductRepositoty  {
 		listProducts.add(product3);
 		listProducts.add(product4);
 		return listProducts;
-		
 	}
 }
