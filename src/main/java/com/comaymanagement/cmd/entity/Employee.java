@@ -9,10 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "employees")
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity(name = "employees")
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

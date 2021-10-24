@@ -1,8 +1,12 @@
-com/comaymanagement/cmd/repository/UserRepository.class
-com/comaymanagement/cmd/CmdApplication.class
+com/comaymanagement/cmd/repository/EmployeesRepository.class
 com/comaymanagement/cmd/service/UserService.class
 com/comaymanagement/cmd/service/ProductService.class
 com/comaymanagement/cmd/repository/ProductRepositoty.class
 com/comaymanagement/cmd/entity/User.class
-com/comaymanagement/cmd/controller/APIController.class
 com/comaymanagement/cmd/entity/Product.class
+com/comaymanagement/cmd/repository/UserRepository.class
+com/comaymanagement/cmd/CmdApplication.class
+com/comaymanagement/cmd/controller/EmployeesAPI.class
+com/comaymanagement/cmd/entity/Employees.class
+com/comaymanagement/cmd/controller/APIController.class
+com/comaymanagement/cmd/service/EmployeesService.class

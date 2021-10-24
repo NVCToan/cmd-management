@@ -4,5 +4,9 @@
 /Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/service/UserService.java
 /Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/repository/UserRepository.java
 /Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/entity/Product.java
+/Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/service/EmployeesService.java
+/Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/repository/EmployeesRepository.java
 /Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/controller/APIController.java
 /Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/repository/ProductRepositoty.java
+/Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/entity/Employees.java
+/Users/nguyentoan/Desktop/cmd-management/src/main/java/com/comaymanagement/cmd/controller/EmployeesAPI.java
