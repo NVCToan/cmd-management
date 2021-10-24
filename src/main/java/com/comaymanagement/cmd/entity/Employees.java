@@ -18,13 +18,14 @@ public class Employees {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
-	private String date_of_birth;
+	private String dateOfBirth;
 	private String email;
-	private String phone_number;
+	private String phoneNumber;
 	
-	private Long manager_id;
-	private String create_by;
-	private String modify_by;
-	private String create_date;
-	private String modify_date;
+	private boolean activeFlag;
+	private Long managerId;
+	private String createBy;
+	private String modifyBy;
+	private String createDate;
+	private String modifyDate;
 }
