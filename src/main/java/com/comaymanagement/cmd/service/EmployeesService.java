@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,10 @@ public class EmployeesService implements IGeneralService<Employees> {
 
 	@Override
 	public Iterable<Employees> findAll() {
+		
 		return employeesRepository.findAll();
+	}
+	public List<Employees> findByActiveFlag(Boolean flag){
+		return employeesRepository.findByActiveFlag(flag);
 	}
 }

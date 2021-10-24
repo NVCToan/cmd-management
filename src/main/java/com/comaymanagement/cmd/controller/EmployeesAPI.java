@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,11 @@ public class EmployeesAPI {
 	public Optional<Employees> FindByID(@PathVariable Long id) {
 		return employeesService.findById(id);
 	}
+	@GetMapping("/flag/{f}")
+	public List<Employees> FindByActiveFlag(@PathVariable Boolean f) {
+		return employeesService.findByActiveFlag(f);
+	}
+	
+	
 	
 }
