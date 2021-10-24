@@ -10,20 +10,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "employees")
-public class Employees {
+@NoArgsConstructor
+@Entity(name="proposal_type_details")
+public class ProposalTypeDetail {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private String name;
-	private String dateOfBirth;
-	private String email;
-	private String phoneNumber;
-	
-	private boolean activeFlag;
-	private Long managerId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private Integer proposalTypeId;
+	private Integer fieldId;
+	private String fieldName;
+	private Integer dataTypeId;
 	private String createBy;
 	private String modifyBy;
 	private String createDate;
