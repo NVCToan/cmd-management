@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.comaymanagement.cmd.entity.Employees;
+import com.comaymanagement.cmd.entity.Employee;
 import com.comaymanagement.cmd.service.EmployeesService;
 
 @RestController
@@ -21,17 +21,17 @@ public class EmployeesAPI {
 	
 	// Create url find all employees
 	@GetMapping("")
-	public Iterable<Employees> FindAll(){
+	public Iterable<Employee> FindAll(){
 		return employeesService.findAll();
 	}
 	
 	// Create url find employees by id
 	@GetMapping("/{id}")
-	public Optional<Employees> FindByID(@PathVariable Long id) {
+	public Optional<Employee> FindByID(@PathVariable Long id) {
 		return employeesService.findById(id);
 	}
 	@GetMapping("/flag/{f}")
-	public List<Employees> FindByActiveFlag(@PathVariable Boolean f) {
+	public List<Employee> FindByActiveFlag(@PathVariable Boolean f) {
 		return employeesService.findByActiveFlag(f);
 	}
 	
