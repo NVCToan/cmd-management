@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,4 +25,8 @@ public class ProposalDetail {
 	private String modifyBy;
 	private String createDate;
 	private String modifyDate;
+	
+	@OneToOne()
+	@JoinColumn(name="proposal_id")
+	private Proposal proposal;
 }
