@@ -2,16 +2,16 @@ package com.comaymanagement.cmd.entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,10 +30,12 @@ public class Role {
 	
 	@OneToMany
 	@JoinColumn(name="role_id")
+	@JsonBackReference
 	private Set<Auth> authList;
 	
 	@OneToMany
 	@JoinColumn(name="role_id")
+	@JsonBackReference
 	private Set<RoleDetail> roleDetailList ;
 	
 	@OneToOne()

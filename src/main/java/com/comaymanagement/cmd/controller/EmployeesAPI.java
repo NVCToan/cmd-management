@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.comaymanagement.cmd.entity.Employee;
+import com.comaymanagement.cmd.entity.Position;
 import com.comaymanagement.cmd.service.EmployeesService;
 
 @RestController
@@ -22,12 +23,18 @@ public class EmployeesAPI {
 	// Create url find all employees
 	@GetMapping(path = "", produces = "application/json")
 	public List<Employee> FindAll(){
+		for(Employee employee : employeesService.findAll()) {
+			for(Position position : employee.getPositionList()) {
+				System.out.println(position.getName());
+			}
+		}
 		return employeesService.findAll();
 	}
 	
 	// Create url find employees by id
 	@GetMapping("/{id}")
 	public Optional<Employee> FindByID(@PathVariable Long id) {
+
 		return employeesService.findById(id);
 	}
 	@GetMapping("/flag/{f}")

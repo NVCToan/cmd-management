@@ -11,6 +11,7 @@ import com.comaymanagement.cmd.entity.Employee;
 public interface IEmployeesRepository extends JpaRepository<Employee, Long> {
 	
 	public List<Employee> findByActiveFlag(Boolean activeFlag);
+	
 
 	
 }
