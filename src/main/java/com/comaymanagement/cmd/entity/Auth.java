@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +19,11 @@ import lombok.NoArgsConstructor;
 public class Auth {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name="role_id",insertable=false, updatable=false)
 	private Integer roleId;
+	@Column(name="menu_id",insertable=false, updatable=false)
 	private Integer menuId;
 	private Boolean permission;
 	private Boolean activeFlag;

@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,16 +19,22 @@ import lombok.NoArgsConstructor;
 public class ApprovalStepDetail {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(name = "approval_step_id")
 	private Integer approvalStepId;
+	
+	@Column(name="employee_id",insertable=false, updatable=false)
 	private Integer employeeId;
+	
+	@Column(name = "department_id",insertable=false, updatable=false)
 	private Integer departmentId;
+	@Column(name="postion_id",insertable=false, updatable=false)
 	private Integer positionId;
 	
 	@OneToOne()
-	@JoinColumn(name="approval_step_id")
+	@JoinColumn(name="approval_step_id",insertable=false, updatable=false)
 	private ApprovalStep approvalStep;
 	
 	@OneToOne()

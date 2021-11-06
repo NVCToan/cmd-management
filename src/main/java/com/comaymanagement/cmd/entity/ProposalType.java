@@ -24,19 +24,19 @@ public class ProposalType {
 	private Integer id;
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="proposal_type_id")
 	private Set<ProposalDetail> proposalDetailList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="proposal_type_id")
 	private Set<ProposalPermission> proposalPermissionList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="proposal_type_id")
 	private Set<Proposal> proposalList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="proposal_type_id")
 	private Set<ApprovalStep> approvalStepList;
 	

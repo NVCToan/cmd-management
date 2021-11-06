@@ -24,8 +24,9 @@ import lombok.NoArgsConstructor;
 @Entity(name = "employees")
 public class Employee {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 	private String dateOfBirth;
 	private String email;
@@ -40,35 +41,35 @@ public class Employee {
 	
 	@ManyToMany()
 	@JoinTable(name = "positions_has_employees",
-	joinColumns = {@JoinColumn(name = "id", referencedColumnName = "employee_id")},
-	inverseJoinColumns = {@JoinColumn(name = "id", referencedColumnName = "position_id")})
+	joinColumns = {@JoinColumn(name = "employee_id", referencedColumnName = "id")},
+	inverseJoinColumns = {@JoinColumn(name = "position_id", referencedColumnName = "id")})
 	private Set<Position> positionList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="employee_id")
 	private Set<ProposalPermission> proposalPermissionList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="creator_id")
 	private Set<Task> taskList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="receiver_id")
 	private Set<TaskDetail> taskDetailList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="creator_id")
 	private Set<Proposal> proposalList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="employee_id")
 	private Set<ApprovalStepDetail> approvalStepDetailList ;
 	
 	
 	@ManyToMany()
 	@JoinTable(name = "departments_employees",
-	joinColumns = {@JoinColumn(name = "id", referencedColumnName = "employee_id")},
-	inverseJoinColumns = {@JoinColumn(name = "id", referencedColumnName = "department_id")})
+	joinColumns = {@JoinColumn(name = "employee_id", referencedColumnName = "id")},
+	inverseJoinColumns = {@JoinColumn(name = "department_id", referencedColumnName = "id")})
 	private Set<Department> departmentList;
 	
 	

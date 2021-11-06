@@ -20,8 +20,8 @@ public class EmployeesAPI {
 	EmployeesService employeesService;
 	
 	// Create url find all employees
-	@GetMapping("")
-	public Iterable<Employee> FindAll(){
+	@GetMapping(path = "", produces = "application/json")
+	public List<Employee> FindAll(){
 		return employeesService.findAll();
 	}
 	

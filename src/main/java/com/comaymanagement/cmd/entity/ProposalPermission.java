@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,13 @@ public class ProposalPermission {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name="proposal_type_id",insertable=false, updatable=false)
 	private Integer proposalTypeId;
+	@Column(name="department_id",insertable=false, updatable=false)
 	private Integer departmentId;
+	@Column(name="position_id",insertable=false, updatable=false)
 	private Integer positionId;
+	@Column(name="employee_id",insertable=false, updatable=false)
 	private Integer employees;
 	
 	@OneToOne()

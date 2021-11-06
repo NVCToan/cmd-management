@@ -22,12 +22,12 @@ import lombok.NoArgsConstructor;
 public class Option {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="option_id")
 	private Set<RoleDetail> roleDetailList;
 }

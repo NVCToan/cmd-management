@@ -3,6 +3,7 @@ package com.comaymanagement.cmd.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,11 +25,14 @@ public class Proposal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name="proposal_type_id",insertable=false, updatable=false)
 	private Integer proposalTypeId;
+	@Column(name="creator_id",insertable=false, updatable=false)
 	private Integer creatorId;
+	@Column(name="status_id",insertable=false, updatable=false)
 	private Integer statusId;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="proposal_id")
 	private Set<ProposalDetail> proposalDetailList;
 	

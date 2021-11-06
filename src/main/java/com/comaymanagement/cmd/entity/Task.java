@@ -3,6 +3,7 @@ package com.comaymanagement.cmd.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,14 +25,16 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name="status_id",insertable=false, updatable=false)
 	private Integer statusId;
+	@Column(name="creator_id",insertable=false, updatable=false)
 	private Integer creatorId;
 	
 	@OneToOne()
 	@JoinColumn(name="creator_id")
 	private Employee employee;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="task_id")
 	private Set<TaskDetail> taskDetailList;
 	

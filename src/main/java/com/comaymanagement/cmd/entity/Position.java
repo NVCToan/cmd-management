@@ -3,6 +3,7 @@ package com.comaymanagement.cmd.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,10 +26,11 @@ import lombok.NoArgsConstructor;
 public class Position {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String name;
+	@Column(name="department_id")
 	private Integer departmentId;
 	private Boolean isManager;
 	private String createBy;
@@ -36,25 +38,25 @@ public class Position {
 	private String modifyBy;
 	private String modifyDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="position_id")
 	private Set<Role> roleList;
 	
 	@OneToOne()
-	@JoinColumn(name="department_id")
+	@JoinColumn(name="department_id",insertable=false, updatable=false)
 	private Department department;
 	
 	@ManyToMany()
 	@JoinTable(name = "positions_has_employees",
-	joinColumns = {@JoinColumn(name = "id", referencedColumnName = "position_id")},
-	inverseJoinColumns = {@JoinColumn(name = "id", referencedColumnName = "employee_id")})
+	joinColumns = {@JoinColumn(name = "position_id", referencedColumnName = "id")},
+	inverseJoinColumns = {@JoinColumn(name = "employee_id", referencedColumnName = "id")})
 	private Set<Employee> employeeList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="position_id")
 	private Set<ApprovalStepDetail> approvalStepDetailList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="position_id")
 	private Set<ProposalPermission> proposalPermissionList;
 	

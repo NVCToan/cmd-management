@@ -30,7 +30,7 @@ public class EmployeesService implements IGeneralService<Employee> {
 	}
 
 	@Override
-	public Iterable<Employee> findAll() {
+	public List<Employee> findAll() {
 		
 		return employeesRepository.findAll();
 	}

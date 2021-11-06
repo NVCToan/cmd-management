@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Menu {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private Integer parentId;
@@ -32,7 +32,7 @@ public class Menu {
 	private String createDate;
 	private String updateDate;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="menu_id")
 	private Set<Auth> authList;
 	

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class ApprovalStep {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	
@@ -35,7 +35,7 @@ public class ApprovalStep {
 	@JoinColumn(name="proposal_type_id")
 	private ProposalType proposalType;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="approval_step_id")
 	private Set<ApprovalStepDetail> approvalStepDetailList;
 }

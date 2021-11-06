@@ -24,11 +24,11 @@ public class Status {
 	private Integer id;
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="status_id")
 	private Set<Proposal> proposalList;
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany
 	@JoinColumn(name="status_id")
 	private Set<Task> taskList;
 }
