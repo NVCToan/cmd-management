@@ -23,12 +23,6 @@ public class EmployeesAPI {
 	// Create url find all employees
 	@GetMapping(path = "", produces = "application/json")
 	public List<Employee> FindAll(){
-		for(Employee employee : employeesService.findAll()) {
-			for(Position position : employee.getPositionList()) {
-				System.out.println(position.getName());
-			}
-		}
-
 		return employeesService.findAll();
 	}
 	
