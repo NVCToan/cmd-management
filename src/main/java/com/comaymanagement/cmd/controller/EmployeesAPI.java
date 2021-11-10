@@ -14,33 +14,33 @@ import org.springframework.web.bind.annotation.RestController;
 import com.comaymanagement.cmd.entity.Department;
 import com.comaymanagement.cmd.entity.Employee;
 import com.comaymanagement.cmd.entity.ResponseObject;
-import com.comaymanagement.cmd.service.DepartmentHasEmployeeService;
-import com.comaymanagement.cmd.service.EmployeesService;
+import com.comaymanagement.cmd.service.DepartmentService;
+import com.comaymanagement.cmd.service.EmployeeService;
 
 @RestController
 @RequestMapping("/employees")
 public class EmployeesAPI {
 //	 private final Logger logger = LoggerFactory.getLogger(this.getClass()); => Xong goi method ra
 	@Autowired
-	EmployeesService employeesService;
+	EmployeeService employeeService;
 	@Autowired
-	DepartmentHasEmployeeService departmentHasEmployeeService;
+	DepartmentService departmentService;
 	// Create url find all employees
 	@GetMapping(path = "", produces = "application/json")
 	public List<Employee> FindAll(){
-		return employeesService.findAll();
+		return employeeService.findAll();
 	}
 	
 	// Create url find employees by id
 	@GetMapping("/{id}")
 	public Optional<Employee> FindByID(@PathVariable Long id) {
 
-		return employeesService.findById(id);
+		return employeeService.findById(id);
 	}
 	@GetMapping("/{id}/departments")
 	public ResponseEntity<Object> findAllDepartmentByEmployeeId(@PathVariable Long id) {
 		
-		List<Department> departments = departmentHasEmployeeService.findAllDepartmentByEmployeeId(id);
+		List<Department> departments = departmentService.findAllDepartmentByEmployeeId(id);
 		
 		if (departments.size() > 0 ) {
 			return ResponseEntity.status(HttpStatus.OK).body(
@@ -55,7 +55,7 @@ public class EmployeesAPI {
 	}
 	@GetMapping("/flag/{f}")
 	public List<Employee> FindByActiveFlag(@PathVariable Boolean f) {
-		return employeesService.findByActiveFlag(f);
+		return employeeService.findByActiveFlag(f);
 	}
 	
 	

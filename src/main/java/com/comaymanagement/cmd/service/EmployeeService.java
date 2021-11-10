@@ -7,34 +7,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.comaymanagement.cmd.entity.Employee;
-import com.comaymanagement.cmd.repository.IEmployeesRepository;
+import com.comaymanagement.cmd.repository.IEmployeeRepository;
 
 @Service
-public class EmployeesService implements IGeneralService<Employee> {
+public class EmployeeService implements IGeneralService<Employee> {
 	
 	@Autowired
-	IEmployeesRepository employeesRepository;
+	IEmployeeRepository employeeRepository;
 
 	@Override
 	public Optional<Employee> findById(Long id) {
-		return employeesRepository.findById(id);
+		return employeeRepository.findById(id);
 	}
 
 	@Override
 	public void remove(Employee employees) {
-		employeesRepository.delete(employees);
+		employeeRepository.delete(employees);
 	}
 	@Override
 	public Employee save(Employee employees) {
-		return employeesRepository.save(employees);
+		return employeeRepository.save(employees);
 	}
 
 	@Override
 	public List<Employee> findAll() {
 		
-		return employeesRepository.findAll();
+		return employeeRepository.findAll();
 	}
 	public List<Employee> findByActiveFlag(Boolean flag){
-		return employeesRepository.findByActiveFlag(flag);
+		return employeeRepository.findByActiveFlag(flag);
 	}
 }

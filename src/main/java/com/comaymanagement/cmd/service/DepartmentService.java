@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.comaymanagement.cmd.entity.Department;
-import com.comaymanagement.cmd.repository.IDepartmentHasEmployee;
+import com.comaymanagement.cmd.repository.IDepartmentRepository;
+
 @Service
-public class DepartmentHasEmployeeService{
+public class DepartmentService{
 	@Autowired
-	IDepartmentHasEmployee departmentHasEmployeeRepository;
+	IDepartmentRepository departmentRepository;
 	public List<Department> findAllDepartmentByEmployeeId( Long id){
-		return departmentHasEmployeeRepository.findAllDepartmentByEmployeeId(id);
+		return departmentRepository.findAllDepartmentByEmployeeId(id);
 	}
 
 	
