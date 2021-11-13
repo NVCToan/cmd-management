@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.comaymanagement.cmd.entity.CustomEmployeeAll;
 import com.comaymanagement.cmd.entity.Department;
 import com.comaymanagement.cmd.entity.Employee;
 import com.comaymanagement.cmd.entity.ResponseObject;
@@ -27,8 +29,23 @@ public class EmployeesAPI {
 	DepartmentService departmentService;
 	// Create url find all employees
 	@GetMapping(path = "", produces = "application/json")
-	public List<Employee> FindAll(){
-		return employeeService.findAll();
+	public List<CustomEmployeeAll> findAll(){
+		List<CustomEmployeeAll> customEmployees = new ArrayList<>();
+		List<Employee> employees = employeeService.findAll();
+		for(Employee e : employees) {
+			CustomEmployeeAll cEmp = new CustomEmployeeAll();
+			cEmp.setId(e.getId());
+			cEmp.setName(e.getName());
+			cEmp.setDateOfBirth(e.getDateOfBirth());
+			cEmp.setEmail(e.getEmail());
+			cEmp.setPhoneNumber(e.getPhoneNumber());
+			cEmp.setDepartmentList(e.getDepartmentList());
+			cEmp.setPositionList(e.getPositionList());
+			customEmployees.add(cEmp);
+			
+			
+		}
+		return customEmployees;
 	}
 	
 	// Create url find employees by id
