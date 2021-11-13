@@ -1,22 +1,41 @@
 package com.comaymanagement.cmd.entity;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-@Data
+import lombok.Setter;
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="tasks")
-public class Task {
+public class Task {  
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Integer statusId;
-	private Integer creatorId;
+	
+	@OneToOne()
+	@JoinColumn(name="creator_id")
+	private Employee employee;
+	
+	@OneToMany
+	@JoinColumn(name="task_id")
+	@JsonBackReference
+	private Set<TaskDetail> taskDetailList;
+	
+	@OneToOne()
+	@JoinColumn(name="status_id")
+	private Status status;
 }
