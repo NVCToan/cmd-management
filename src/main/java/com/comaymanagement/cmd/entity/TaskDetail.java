@@ -1,5 +1,7 @@
 package com.comaymanagement.cmd.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,21 +12,20 @@ import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name = "task_details")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class TaskDetail {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="receiver_id")
-	private Integer receiverId;
-	@Column(name="task_id")
-	private Integer taskId;
 	private String title;
 	private String description;
 	private String createBy;
@@ -33,7 +34,7 @@ public class TaskDetail {
 	private String modifyDate;
 	
 	@OneToOne()
-	@JoinColumn(name="task_id",insertable=false, updatable=false)
+	@JoinColumn
 	private Task task;
 	
 	@OneToOne()

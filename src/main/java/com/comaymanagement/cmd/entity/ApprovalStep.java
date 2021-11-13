@@ -14,10 +14,13 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name = "approval_steps")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApprovalStep {
@@ -29,7 +32,6 @@ public class ApprovalStep {
 	
 	private String approvalStepName;
 	private Integer approvalStepIndex;
-	private Integer proposalStyleId;
 	
 	@OneToOne()
 	@JoinColumn(name="proposal_type_id")

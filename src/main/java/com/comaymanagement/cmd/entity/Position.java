@@ -17,11 +17,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name = "positions")
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 public class Position {
 	
@@ -30,8 +33,6 @@ public class Position {
 	private Integer id;
 	
 	private String name;
-	@Column(name="department_id")
-	private Integer departmentId;
 	private Boolean isManager;
 	private String createBy;
 	private String createDate;

@@ -1,5 +1,7 @@
 package com.comaymanagement.cmd.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +12,11 @@ import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Data
+import lombok.Setter;
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="role_details")
@@ -19,12 +24,6 @@ public class RoleDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="role_id",insertable=false, updatable=false)
-	private Integer roleId;
-	@Column(name="option_id",insertable=false, updatable=false)
-	private Integer optionId;
-	@Column(name="permission_id",insertable=false, updatable=false)
-	private Integer permissionId;
 	private String createBy;
 	private String modify_by;
 	private String createDate;

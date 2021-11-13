@@ -15,8 +15,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Data
+import lombok.Setter;
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="roles")
@@ -25,9 +28,6 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
-	@Column(name="position_id",insertable=false, updatable=false)
-	private Integer positionId;
-	
 	@OneToMany
 	@JoinColumn(name="role_id")
 	@JsonBackReference

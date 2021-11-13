@@ -1,5 +1,7 @@
 package com.comaymanagement.cmd.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +12,13 @@ import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity(name = "approval_step_details")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ApprovalStepDetail {
@@ -21,17 +26,6 @@ public class ApprovalStepDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name = "approval_step_id")
-	private Integer approvalStepId;
-	
-	@Column(name="employee_id",insertable=false, updatable=false)
-	private Integer employeeId;
-	
-	@Column(name = "department_id",insertable=false, updatable=false)
-	private Integer departmentId;
-	@Column(name="postion_id",insertable=false, updatable=false)
-	private Integer positionId;
 	
 	@OneToOne()
 	@JoinColumn(name="approval_step_id",insertable=false, updatable=false)

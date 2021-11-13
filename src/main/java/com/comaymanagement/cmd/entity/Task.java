@@ -15,9 +15,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-@Data
+import lombok.Setter;
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="tasks")
@@ -25,10 +27,6 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="status_id",insertable=false, updatable=false)
-	private Integer statusId;
-	@Column(name="creator_id",insertable=false, updatable=false)
-	private Integer creatorId;
 	
 	@OneToOne()
 	@JoinColumn(name="creator_id")

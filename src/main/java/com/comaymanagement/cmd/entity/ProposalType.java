@@ -13,8 +13,11 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Data
+import lombok.Setter;
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "proposal_types")
@@ -24,10 +27,6 @@ public class ProposalType {
 	private Integer id;
 	private String name;
 	
-	@OneToMany
-	@JoinColumn(name="proposal_type_id")
-	@JsonBackReference
-	private Set<ProposalDetail> proposalDetailList;
 	
 	@OneToMany
 	@JoinColumn(name="proposal_type_id")

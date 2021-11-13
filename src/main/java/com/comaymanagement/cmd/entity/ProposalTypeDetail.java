@@ -1,5 +1,7 @@
 package com.comaymanagement.cmd.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +12,12 @@ import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name="proposal_type_details")
@@ -20,12 +25,8 @@ public class ProposalTypeDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="proposal_type_id",insertable=false, updatable=false)
-	private Integer proposalTypeId;
 	private Integer fieldId;
 	private String fieldName;
-	@Column(name="data_type_id",insertable=false, updatable=false)
-	private Integer dataTypeId;
 	private String createBy;
 	private String modifyBy;
 	private String createDate;
