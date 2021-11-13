@@ -1,6 +1,9 @@
-package com.comaymanagement.cmd.entity;
+package com.comaymanagement.cmd.customentity;
 
 import java.util.Set;
+
+import com.comaymanagement.cmd.entity.Department;
+import com.comaymanagement.cmd.entity.Position;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

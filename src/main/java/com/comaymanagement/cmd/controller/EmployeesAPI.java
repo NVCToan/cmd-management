@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.comaymanagement.cmd.entity.CustomEmployeeAll;
+import com.comaymanagement.cmd.customentity.CustomDepartmentAll;
+import com.comaymanagement.cmd.customentity.CustomEmployeeAll;
 import com.comaymanagement.cmd.entity.Department;
 import com.comaymanagement.cmd.entity.Employee;
 import com.comaymanagement.cmd.entity.ResponseObject;
@@ -29,25 +30,36 @@ public class EmployeesAPI {
 	DepartmentService departmentService;
 	// Create url find all employees
 	@GetMapping(path = "", produces = "application/json")
-	public List<CustomEmployeeAll> findAll(){
-		List<CustomEmployeeAll> customEmployees = new ArrayList<>();
-		List<Employee> employees = employeeService.findAll();
-		for(Employee e : employees) {
-			CustomEmployeeAll cEmp = new CustomEmployeeAll();
-			cEmp.setId(e.getId());
-			cEmp.setName(e.getName());
-			cEmp.setDateOfBirth(e.getDateOfBirth());
-			cEmp.setEmail(e.getEmail());
-			cEmp.setPhoneNumber(e.getPhoneNumber());
-			cEmp.setDepartmentList(e.getDepartmentList());
-			cEmp.setPositionList(e.getPositionList());
-			customEmployees.add(cEmp);
-			
-			
-		}
-		return customEmployees;
-	}
+	public ResponseEntity<Object> findAll() {
+		
+	List<CustomEmployeeAll> customEmployees = new ArrayList<>();
+	List<Employee> employees = employeeService.findAll();
 	
+	for(Employee e : employees) {
+		CustomEmployeeAll cEmp = new CustomEmployeeAll();
+		cEmp.setId(e.getId());
+		cEmp.setName(e.getName());
+		cEmp.setDateOfBirth(e.getDateOfBirth());
+		cEmp.setEmail(e.getEmail());
+		cEmp.setPhoneNumber(e.getPhoneNumber());
+		cEmp.setDepartmentList(e.getDepartmentList());
+		cEmp.setPositionList(e.getPositionList());
+		customEmployees.add(cEmp);
+		
+		
+	}
+		
+		if (customEmployees.size() > 0 ) {
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("OK","Query produce successfully: ", customEmployees)
+			);
+		}else {
+			
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+				new ResponseObject("Not found","Error","")
+			);
+		}
+	}
 	// Create url find employees by id
 	@GetMapping("/{id}")
 	public Optional<Employee> FindByID(@PathVariable Long id) {
