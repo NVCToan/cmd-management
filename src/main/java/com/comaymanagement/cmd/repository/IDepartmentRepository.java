@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.repository;
 
+
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -18,4 +19,5 @@ public interface IDepartmentRepository extends JpaRepository<Department, Integer
 	public List<Department> findAllDepartmentByEmployeeId(@PathParam("id") Long id);
 	
 	
+
 }
