@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,24 +21,20 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 public class TaskDetail {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String title;
-	private String description;
-	private String createBy;
-	private String modifyBy;
-	private String createDate;
-	private String modifyDate;
 	
 	@OneToOne()
-	@JoinColumn
+	@JsonBackReference
+	@JoinColumn(name = "task_id")
 	private Task task;
 	
 	@OneToOne()
-	@JoinColumn(name="receiver_id",insertable=false, updatable=false)
+	@JoinColumn(name="receiver_id")
 	private Employee employee;
 	
 	
