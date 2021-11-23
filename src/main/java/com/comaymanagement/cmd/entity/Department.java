@@ -26,12 +26,11 @@ import lombok.Setter;
 public class Department {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	private String name;
-	private Integer fatherDepartmentId;
-	private Integer managerId;
+	private String fatherDepartmentId;
+	private String managerId;
 	private String createBy;
 	private String createDate;
 	private String modifyBy;

@@ -27,8 +27,7 @@ import lombok.Setter;
 @Entity(name = "employees")
 public class Employee {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private String id;
 	
 	private String name;
 	private String dateOfBirth;
@@ -36,7 +35,7 @@ public class Employee {
 	private String phoneNumber;
 	
 	private boolean activeFlag;
-	private Long managerId;
+	private String managerId;
 	private String createBy;
 	private String modifyBy;
 	private String createDate;

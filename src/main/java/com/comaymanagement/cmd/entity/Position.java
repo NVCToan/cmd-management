@@ -27,8 +27,7 @@ import lombok.Setter;
 public class Position {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	private String name;
 	private Boolean isManager;

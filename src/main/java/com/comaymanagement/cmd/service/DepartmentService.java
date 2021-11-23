@@ -12,7 +12,7 @@ import com.comaymanagement.cmd.repository.IDepartmentRepository;
 public class DepartmentService{
 	@Autowired
 	IDepartmentRepository departmentRepository;
-	public List<Department> findAllDepartmentByEmployeeId( Long id){
+	public List<Department> findAllDepartmentByEmployeeId( String id){
 		return departmentRepository.findAllDepartmentByEmployeeId(id);
 	}
 	public List<Department> findAll(){

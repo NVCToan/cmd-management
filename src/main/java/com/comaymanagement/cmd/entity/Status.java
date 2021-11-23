@@ -22,8 +22,7 @@ import lombok.Setter;
 @Entity(name="statuses")
 public class Status {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	private String name;
 	
 	@OneToMany

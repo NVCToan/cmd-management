@@ -19,10 +19,6 @@ public class TaskService implements IGeneralService<Task> {
 		return taskRepository.findAll();
 	}
 
-	@Override
-	public Optional<Task> findById(Long id) {
-		return taskRepository.findById(id);
-	}
 
 	@Override
 	public Task save(Task t) {
@@ -34,6 +30,12 @@ public class TaskService implements IGeneralService<Task> {
 	public void remove(Task model) {
 		taskRepository.delete(model);
 		
+	}
+
+	@Override
+	public Optional<Task> findById(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

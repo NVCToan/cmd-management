@@ -18,8 +18,7 @@ import lombok.Setter;
 @Entity(name="role_details")
 public class RoleDetail {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	private String createBy;
 	private String modify_by;
 	private String createDate;

@@ -16,7 +16,7 @@ public class EmployeeService implements IGeneralService<Employee> {
 	IEmployeeRepository employeeRepository;
 
 	@Override
-	public Optional<Employee> findById(Long id) {
+	public Optional<Employee> findById(String id) {
 		return employeeRepository.findById(id);
 	}
 

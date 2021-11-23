@@ -25,18 +25,8 @@ import lombok.Setter;
 @Entity(name="tasks")
 public class Task {  
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@Column(nullable = false)
-	private String title;
-	@Column(nullable = false)
-	private String description;
-	@Column(nullable = false)
-	private String createDate;
-	@Column(nullable = false)
-	private String modifyBy;
-	@Column(nullable = false)
-	private String modifyDate;
+	private String id;
+
 	
 	@OneToOne()
 	@JoinColumn(name="creator_id",nullable = false)
@@ -50,4 +40,6 @@ public class Task {
 	@OneToOne()
 	@JoinColumn(name="status_id",nullable = false)
 	private Status status;
+
+
 }

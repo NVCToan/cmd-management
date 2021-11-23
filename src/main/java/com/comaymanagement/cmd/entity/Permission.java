@@ -23,8 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Permission {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	private String name;
 	
 	@OneToMany

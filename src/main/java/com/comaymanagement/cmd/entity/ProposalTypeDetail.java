@@ -19,9 +19,8 @@ import lombok.Setter;
 @Entity(name="proposal_type_details")
 public class ProposalTypeDetail {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private Integer fieldId;
+	private String id;
+	private String fieldId;
 	private String fieldName;
 	private String createBy;
 	private String modifyBy;

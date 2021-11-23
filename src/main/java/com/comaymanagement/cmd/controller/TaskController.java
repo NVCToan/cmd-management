@@ -33,7 +33,7 @@ public class TaskController {
 	TaskService taskService;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Object> findById(@PathVariable Long id){
+	public ResponseEntity<Object> findById(@PathVariable String id){
 		
 		Optional<Task> task = taskService.findById(id);
 		
@@ -58,9 +58,6 @@ public class TaskController {
 			CustomTaskAll customTask = new CustomTaskAll();
 			customTask.setCreator(task.getEmployee());
 			customTask.setStatus(task.getStatus());
-			customTask.setDescription(task.getDescription());
-			customTask.setTitle(task.getTitle());
-			customTask.setCreateDate(task.getCreateDate());
 
 			List<Employee> recieverList = new ArrayList<Employee>();
 			for (TaskDetail taskDetail : task.getTaskDetailList()) {
@@ -86,11 +83,9 @@ public class TaskController {
 	public ResponseEntity<Object> saveTask(@RequestBody Task newTask) {
 		
 		Task task = new Task();
-		task.setCreateDate(newTask.getCreateDate());
-		task.setDescription(newTask.getDescription());
 		task.setEmployee(newTask.getEmployee());
 		task.setStatus(newTask.getStatus());
-		task.setTitle(newTask.getTitle());
+
 //		Set<TaskDetail> taskDetailList = new HashSet<TaskDetail>();
 //		for(TaskDetail taskDetailItem : newTask.getTaskDetailList()) {
 //			taskDetailList.add(taskDetailItem);
