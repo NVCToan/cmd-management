@@ -13,11 +13,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomDepartmentAll {
-	private Integer id;
+	private String id;
 	
 	private String name;
-	private Integer fatherDepartmentId;
-	private Integer managerId;
+	private String fatherDepartmentId;
+	private String managerId;
 	
 	private Set<Position> positionList;
 	

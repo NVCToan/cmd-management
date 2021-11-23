@@ -23,8 +23,7 @@ import lombok.Setter;
 @Entity(name="roles")
 public class Role {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	private String name;
 	@OneToMany
 	@JoinColumn(name="role_id")

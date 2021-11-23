@@ -20,8 +20,7 @@ import lombok.Setter;
 public class ApprovalStepDetail {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	@OneToOne()
 	@JoinColumn(name="approval_step_id",insertable=false, updatable=false)

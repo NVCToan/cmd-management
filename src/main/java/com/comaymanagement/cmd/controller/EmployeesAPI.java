@@ -62,12 +62,12 @@ public class EmployeesAPI {
 	}
 	// Create url find employees by id
 	@GetMapping("/{id}")
-	public Optional<Employee> FindByID(@PathVariable Long id) {
+	public Optional<Employee> FindByID(@PathVariable String id) {
 
 		return employeeService.findById(id);
 	}
 	@GetMapping("/{id}/departments")
-	public ResponseEntity<Object> findAllDepartmentByEmployeeId(@PathVariable Long id) {
+	public ResponseEntity<Object> findAllDepartmentByEmployeeId(@PathVariable String id) {
 		
 		List<Department> departments = departmentService.findAllDepartmentByEmployeeId(id);
 		

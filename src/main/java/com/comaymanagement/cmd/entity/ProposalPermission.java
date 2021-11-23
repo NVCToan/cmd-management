@@ -19,8 +19,7 @@ import lombok.Setter;
 @Entity(name = "proposal_permissions")
 public class ProposalPermission {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	@OneToOne()
 	@JoinColumn(name="position_id")

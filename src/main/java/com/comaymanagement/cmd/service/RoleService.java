@@ -18,7 +18,7 @@ public class RoleService implements IGeneralService<Role>{
 	}
 
 	@Override
-	public Optional<Role> findById(Long id) {
+	public Optional<Role> findById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

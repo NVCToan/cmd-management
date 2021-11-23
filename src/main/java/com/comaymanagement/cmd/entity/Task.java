@@ -23,8 +23,7 @@ import lombok.Setter;
 @Entity(name="tasks")
 public class Task {  
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	@OneToOne()
 	@JoinColumn(name="creator_id")

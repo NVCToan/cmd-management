@@ -24,8 +24,7 @@ import lombok.Setter;
 @Entity(name = "proposals")
 public class Proposal {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	@OneToMany
 	@JoinColumn(name="proposal_id")

@@ -15,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomRoleAll {
-	private Integer id;
+	private String id;
 	private String name;
 	private Set<Auth> authList;
 	private Set<RoleDetail> roleDetailList ;

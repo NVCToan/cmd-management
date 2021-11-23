@@ -25,8 +25,7 @@ import lombok.Setter;
 public class ApprovalStep {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	
 	private String approvalStepName;

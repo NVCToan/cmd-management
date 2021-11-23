@@ -24,10 +24,9 @@ import lombok.Setter;
 public class Menu {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
-	private Integer parentId;
+	private String parentId;
 	private String url;
 	private String name;
 	private Integer orderIndex;

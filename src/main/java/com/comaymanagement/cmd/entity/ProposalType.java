@@ -22,8 +22,7 @@ import lombok.Setter;
 @Entity(name = "proposal_types")
 public class ProposalType {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	private String name;
 	
 	

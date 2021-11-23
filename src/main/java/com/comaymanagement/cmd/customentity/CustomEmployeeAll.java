@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CustomEmployeeAll {
 	
-	private Long id;
+	private String id;
 	private String name;
 	private String dateOfBirth;
 	private String email;

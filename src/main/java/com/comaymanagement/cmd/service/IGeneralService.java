@@ -6,7 +6,7 @@ public interface IGeneralService<T> {
 	
     Iterable<T> findAll();
 
-    Optional<T> findById(Long id);
+    Optional<T> findById(String id);
 
     T save(T t);
 

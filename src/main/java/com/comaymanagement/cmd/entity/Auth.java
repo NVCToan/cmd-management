@@ -20,8 +20,7 @@ import lombok.Setter;
 public class Auth {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	private Boolean permission;
 	private Boolean activeFlag;
 	private String createDate;

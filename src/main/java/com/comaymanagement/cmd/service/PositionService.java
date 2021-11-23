@@ -20,7 +20,7 @@ public class PositionService implements IGeneralService<Position>{
 	}
 
 	@Override
-	public Optional<Position> findById(Long id) {
+	public Optional<Position> findById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
