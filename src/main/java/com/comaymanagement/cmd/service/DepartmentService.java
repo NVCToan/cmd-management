@@ -1,5 +1,6 @@
 package com.comaymanagement.cmd.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.comaymanagement.cmd.entity.Department;
 import com.comaymanagement.cmd.repository.IDepartmentRepository;
+
 
 @Service
 public class DepartmentService{
@@ -19,4 +21,5 @@ public class DepartmentService{
 		return departmentRepository.findAll();
 	}
 	
+
 }
